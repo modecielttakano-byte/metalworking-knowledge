@@ -814,7 +814,7 @@ def ingest_qa(path: Path, writer: IndexWriter) -> dict[str, int]:
                 body_parts.append("【回答】\n（未回答）")
             writer.add(
                 source_type=SRC_QA,
-                process=process or category or "機械加工",
+                process=process,
                 sheet_name="Q&Aデータ",
                 title=title[:120],
                 body="\n\n".join(body_parts),
