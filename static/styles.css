@@ -1,0 +1,152 @@
+:root {
+  --bg: #f4f1ea;
+  --paper: #fffcf6;
+  --ink: #1c1915;
+  --muted: #5c564c;
+  --line: #d9d0c1;
+  --accent: #1f4e79;
+  --internal: #1f4e79;
+  --ts: #0f6b5c;
+  --qa: #8a5a12;
+  --ok: #2c6e3a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.top, main, footer { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.top { padding-top: 28px; padding-bottom: 8px; }
+.brand h1 { font-size: 1.45rem; margin: 0 0 6px; letter-spacing: 0.02em; }
+.brand p { margin: 0; color: var(--muted); }
+
+.trust-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
+.chip {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.trust-internal { border-color: #b7d0b8; background: #eef6ee; color: var(--ok); }
+.trust-forum { border-color: #e2d2a8; background: #fbf4e4; color: var(--qa); }
+
+.search-box {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 14px;
+}
+.search-box input[type="search"] {
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.search-box button,
+#more,
+#detail-close {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 18px;
+}
+.search-box button:hover,
+#more:hover { filter: brightness(1.08); }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.92rem;
+}
+.filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.filter-label { font-weight: 600; color: var(--muted); }
+#process { font: inherit; padding: 4px 8px; }
+
+.status { min-height: 1.4em; color: var(--muted); font-size: 0.92rem; }
+.results { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+}
+.card:hover { border-color: #b9c6d6; box-shadow: 0 1px 0 rgba(31, 78, 121, 0.08); }
+.card h2 { font-size: 1.02rem; margin: 6px 0 8px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+.badge.log { background: var(--internal); }
+.badge.ts { background: var(--ts); }
+.badge.qa { background: var(--qa); }
+.field {
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: #f0ece3;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.snippet { margin: 0; color: #333; font-size: 0.92rem; }
+.snippet mark { background: #ffe08a; padding: 0 1px; }
+
+.more-wrap { text-align: center; margin: 8px 0 32px; }
+.hidden { display: none !important; }
+
+dialog {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  width: min(760px, 94vw);
+  padding: 0;
+  background: var(--paper);
+}
+dialog::backdrop { background: rgba(28, 25, 21, 0.35); }
+dialog article { padding: 16px 18px 22px; }
+dialog header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+dialog h2 { margin: 0; font-size: 1.1rem; }
+#detail-close { padding: 8px 12px; background: #5c564c; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 14px; }
+#detail-body {
+  white-space: pre-wrap;
+  font: inherit;
+  margin: 0;
+  background: #f7f3eb;
+  padding: 12px;
+  border-radius: 8px;
+  max-height: 60vh;
+  overflow: auto;
+}
+.ext-link { color: var(--accent); }
+
+footer { color: var(--muted); font-size: 0.8rem; padding-bottom: 28px; }
+footer code { font-size: 0.85em; }
+
+@media (max-width: 640px) {
+  .search-box { flex-direction: column; }
+  .search-box button { width: 100%; }
+}
