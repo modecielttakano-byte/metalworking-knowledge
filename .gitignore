@@ -1,0 +1,31 @@
+# Local workbooks, built index, and runtime data — never commit company files
+/data/*
+!/data/README.md
+
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Excel sources (except the tiny synthetic demo under sample_data/)
+*.xlsx
+*.xlsm
+*.xls
+!sample_data/*.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.python-version
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

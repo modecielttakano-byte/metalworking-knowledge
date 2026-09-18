@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>加工方法ナレッジ検索</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>加工方法ナレッジ検索</h1>
+      <p>社内の問題・対策ログと、外部の機械加工Q&amp;Aをまとめて探します。</p>
+    </div>
+    <div class="trust-legend" aria-label="信頼度の説明">
+      <span class="chip trust-internal">社内実績 … 現場の実施記録・社内TS</span>
+      <span class="chip trust-forum">掲示板意見 … 外部Q&amp;A（未検証）</span>
+    </div>
+  </header>
+
+  <main>
+    <form id="search-form" class="search-box" role="search">
+      <input id="q" name="q" type="search" placeholder="現象・工具・対策を日本語で（例: バリ、リーマ、面取り、送り）" autocomplete="off" autofocus>
+      <button type="submit">検索</button>
+    </form>
+
+    <section class="filters" aria-label="絞り込み">
+      <div class="filter-group" id="source-filters">
+        <span class="filter-label">ソース</span>
+        <label><input type="checkbox" name="source" value="internal_log" checked> 社内ログ</label>
+        <label><input type="checkbox" name="source" value="internal_ts_tool" checked> 社内TS・工具</label>
+        <label><input type="checkbox" name="source" value="external_qa" checked> 外部Q&amp;A</label>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="process">工程</label>
+        <select id="process">
+          <option value="">すべて</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label><input type="checkbox" id="result-only"> 社内ログは結果ありのみ</label>
+        <label><input type="checkbox" id="answered-only"> 外部Q&amp;Aは回答ありのみ</label>
+      </div>
+    </section>
+
+    <p id="status" class="status" role="status"></p>
+    <section id="results" class="results"></section>
+    <div id="more-wrap" class="more-wrap hidden">
+      <button type="button" id="more">さらに表示</button>
+    </div>
+  </main>
+
+  <dialog id="detail">
+    <article>
+      <header>
+        <h2 id="detail-title"></h2>
+        <button type="button" id="detail-close" autofocus>閉じる</button>
+      </header>
+      <div id="detail-meta" class="detail-meta"></div>
+      <pre id="detail-body"></pre>
+    </article>
+  </dialog>
+
+  <footer>
+    <p>ローカル専用・認証なし。会社の Excel は <code>data/</code> に置いて取り込み、リポジトリには入れないでください。</p>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
